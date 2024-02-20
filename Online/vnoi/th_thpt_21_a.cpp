@@ -13,18 +13,17 @@ typedef long long ll;
 #define fi first
 #define se second
 
-ll n, a[1000];
+ll n, a, b;
 
 int main()
 {
+    freopen("BAI1.INP", "r", stdin);
+    freopen("BAI1.OUT", "w", stdout);
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-    cin >> n;
-    for (int i = 0; i < n; i++) cin >> a[i];
-    ll l = 0, r = n-1;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 2; j < n; j++) {
-            if (a[j] = a[i-1]+a[i-2])
-        }
-    }
+    cin >> n >> a >> b;
+    if (a > b) cout << a-b << ' ';
+    else cout << 0 << ' ';
+    if (a + b <= n) cout << a;
+    else cout << n - b;
     return 0;
 }

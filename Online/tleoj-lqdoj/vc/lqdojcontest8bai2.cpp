@@ -14,31 +14,29 @@ typedef long long ll;
 #define se second
 
 
-ll n, a[1000000], sum, m, res;
+ll n, a[1000000], sum, m, res, mi = 1e18;
 int main()
 {
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     cin >> n;
     for (ll i = 0; i < n; i++) {
         cin >> a[i];
-        sum += a[i];
+        sum += 1LL * a[i];
     }
-    sum /= n; ll min = LLONG_MAX;
-    for (ll i = 0; i < n; i++) {
-        if ((sum - a[i] >= 0 && sum-a[i] < min)) {min = sum-a[i]; m = a[i];}
+    sum = (long long) sum / n;
+    sort(a, a + n);
+    ll mid = n / 2;
+
+    ll f1 = 0, f2 = 0;
+    for (ll i = 0; i < mid; i++) {
+        f1 += (sum - a[i]) * (sum - a[i]);
     }
-    sum = 0;
-    for (ll i = 0; i < n; i++) {
-        sum += (a[i] - m) * (a[i] - m);
-        // debug(sum);
+
+    for (ll i = mid; i < n; i++) {
+        f2 += (a[i] - sum) * (a[i] - sum);
     }
-    // res = 1000000000000000000;
-    // for (int i = 0; i < n; i++) {
-    //     ll sum = 0;
-    //     for (int j = 0; j < n; j++) {
-    //         sum += (a[j] - a[i]) * (a[j] - a[i]);
-    //     }
-    //     if (sum < res) res = sum;
-    // }
-    cout << sum;
+
+    res = f1 + f2;
+
+    cout << res;
 }
