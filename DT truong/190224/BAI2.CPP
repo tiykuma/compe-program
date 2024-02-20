@@ -27,7 +27,6 @@ int main()
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             ll tmp = lower_bound(a + j + 1, a + n, a[i] + a[j]) - a;
-            debug(tmp);
             res = res + (tmp - j-1);
         }
     }

@@ -9,7 +9,7 @@ typedef long long ll;
 #define ln "\n"
 #define debug(x) cout<<#x<<" = "<<x<<ln
 #define mp make_pair
-#define pb push_back
+#define pb push_backcxz
 #define fi first
 #define se second
 
@@ -19,6 +19,7 @@ int main()
 {
     freopen("DIVSEQ.INP", "r", stdin);
     freopen("DIVSEQ.OUT", "r", stdout);
+
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     cin >> n;
     for (int i = 0; i < n; i++) cin >> a[i];
@@ -26,11 +27,13 @@ int main()
         ll c = 0;
         if (a[i] > 0) {
             while (a[i] > 0) {
+                cout << a[i] << ' ' << c << ' ';
                 c++;
-                if (a[i] > a[i+1]) break;
                 i++;
+                if (i > n) break;
             }
-        }
+            cout << endl;
+        }   
         res += (c*(c+1))/2;
     }
     cout << res;
